@@ -4,6 +4,8 @@
                     const __exports = {};
                     
 
+const __wbg_f_log_log_n_target = console.log;
+
 let cachedDecoder = new TextDecoder('utf-8');
 
 let cachegetUint8Memory = null;
@@ -18,9 +20,9 @@ function getStringFromWasm(ptr, len) {
     return cachedDecoder.decode(getUint8Memory().subarray(ptr, ptr + len));
 }
 
-__exports.__wbg_f_eval_eval_n = function(arg0, arg1) {
+__exports.__wbg_f_log_log_n = function(arg0, arg1) {
     let varg0 = getStringFromWasm(arg0, arg1);
-    eval(varg0);
+    __wbg_f_log_log_n_target(varg0);
 };
 
 __exports.main = function() {
@@ -30,7 +32,7 @@ __exports.main = function() {
                     function init(wasm_path) {
                         return fetch(wasm_path)
                             .then(response => response.arrayBuffer())
-                            .then(buffer => WebAssembly.instantiate(buffer, { './rustc_h_e6kikveski': __exports }))
+                            .then(buffer => WebAssembly.instantiate(buffer, { './rustc_h_c7qfzil27ym': __exports }))
                             .then(({instance}) => {
                                 wasm = init.wasm = instance.exports;
                                 return;

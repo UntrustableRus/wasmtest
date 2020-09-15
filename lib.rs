@@ -4,10 +4,13 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
-    fn eval(s: &str);
+   
+#[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+
 }
 
 #[wasm_bindgen]
 pub fn main() {
-    eval("console.log('hello');");
+    log("hello")
 }
